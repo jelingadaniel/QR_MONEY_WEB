@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QR Money helps people and small businesses access simple digital payments, financial access resources and local professional opportunities.">
+  <title>QR Money | Payments. Opportunity. Access.</title>
+  <style>
+    :root{--navy:#10233f;--blue:#2457d6;--teal:#12a68b;--ink:#17243a;--muted:#64748b;--paper:#f5f8fc;--white:#fff;--line:#e5ebf3}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+    a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:10}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.18rem;color:var(--navy)}
+    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));display:grid;place-items:center;color:white;font-weight:900}
+    .navlinks{display:flex;align-items:center;gap:25px;color:#42516a;font-size:.93rem}.navlinks a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:10px;font-weight:750;border:1px solid transparent;cursor:pointer;transition:.2s}
+    .btn-primary{background:var(--blue);color:white;box-shadow:0 8px 20px #2457d626}.btn-primary:hover{background:#1946ba;transform:translateY(-1px)}
+    .btn-light{background:white;color:var(--navy);border-color:var(--line)}.btn-light:hover{border-color:var(--blue)}
+    .menu{display:none;background:none;border:0;font-size:1.5rem}
+    .hero{background:radial-gradient(circle at 85% 20%,#d9f6ef 0,transparent 27%),linear-gradient(135deg,#f4f7ff,#f7fbff);padding:86px 0 78px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:55px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:30px;background:#e8f7f3;color:#087d69;font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1{font-size:clamp(2.55rem,5vw,4.45rem);line-height:1.08;letter-spacing:-.045em;color:var(--navy);margin:20px 0}
+    h1 span{color:var(--blue)}.lead{font-size:1.12rem;color:#58677e;max-width:600px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.micro{font-size:.86rem;color:#718096}
+    .visual{background:linear-gradient(145deg,#142b4c,#1d4670);border-radius:26px;padding:26px;color:white;box-shadow:0 25px 60px #10233f30;position:relative}
+    .visual:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#18b69a33;right:-45px;top:-55px}
+    .phone{position:relative;background:white;color:var(--ink);border-radius:20px;padding:22px;max-width:340px;margin:auto;box-shadow:0 16px 40px #0002}
+    .phone-top{display:flex;justify-content:space-between;align-items:center;color:#718096;font-size:.8rem}.balance{font-size:1.9rem;font-weight:850;color:var(--navy);margin:18px 0 4px}
+    .qr{width:142px;height:142px;margin:18px auto;background:white;border:9px solid #f0f4fa;border-radius:8px;display:grid;place-items:center}
+    .qr svg{width:120px;height:120px}.payrow{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);font-size:.85rem}
+    .trust{padding:24px 0;border-bottom:1px solid var(--line)}.trust-row{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;color:#62718a;font-size:.9rem;font-weight:700}
+    section{padding:82px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 42px}.kicker{color:var(--teal);font-weight:850;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em}
+    h2{font-size:clamp(2rem,3.4vw,2.8rem);line-height:1.15;letter-spacing:-.035em;color:var(--navy);margin:10px 0 14px}.section-head p,.muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{border:1px solid var(--line);border-radius:17px;padding:25px;background:white;box-shadow:0 8px 24px #10233f08}
+    .icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:#edf2ff;color:var(--blue);font-size:1.35rem;margin-bottom:17px}
+    .card h3{margin:0 0 9px;color:var(--navy);font-size:1.13rem}.card p{color:var(--muted);font-size:.94rem;margin:0}
+    .access{background:var(--paper)}.split{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .steps{display:grid;gap:15px;margin-top:25px}.step{display:flex;gap:14px;align-items:flex-start}.num{flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e5efff;color:var(--blue);font-weight:850}
+    .step strong{display:block;color:var(--navy)}.step p{margin:3px 0 0;color:var(--muted);font-size:.92rem}
+    .panel{background:white;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 15px 35px #10233f0b}
+    .panel-label{font-size:.78rem;font-weight:850;color:var(--teal);letter-spacing:.1em;text-transform:uppercase}.panel h3{font-size:1.5rem;color:var(--navy);margin:8px 0}
+    .pill{display:inline-block;background:#edf7f4;color:#087d69;padding:6px 10px;border-radius:30px;font-size:.78rem;font-weight:800;margin:5px 5px 0 0}
+    .opportunity{background:linear-gradient(135deg,#10233f,#1b4671);color:white}.opportunity h2{color:white}.opportunity .section-head p{color:#c8d5e6}
+    .opportunity .card{background:#ffffff0c;border-color:#ffffff24;color:white}.opportunity .card h3{color:white}.opportunity .card p{color:#c8d5e6}.opportunity .icon{background:#ffffff18;color:#72e0c9}
+    .sdgs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}.sdg{border:1px solid #ffffff38;border-radius:10px;padding:9px 13px;font-size:.85rem;font-weight:800}
+    .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.impact{padding:23px;border-radius:15px;background:#f5f8fc;text-align:center}.impact strong{font-size:1.65rem;color:var(--blue);display:block}.impact span{font-size:.88rem;color:var(--muted)}
+    .cta{background:#edf4ff;text-align:center}.cta p{color:var(--muted);max-width:620px;margin:0 auto 25px}
+    footer{background:#0c1b31;color:#d4deeb;padding:45px 0 25px}.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-brand{color:white;font-size:1.15rem;font-weight:850}.footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem}.footer-note{border-top:1px solid #ffffff20;margin-top:30px;padding-top:18px;color:#9eafc5;font-size:.8rem}
+    .notice{font-size:.82rem;color:#75839a;margin-top:16px}
+    @media(max-width:800px){.hero-grid,.split{grid-template-columns:1fr}.hero{padding:60px 0}.visual{max-width:500px;margin:auto}.cards{grid-template-columns:1fr 1fr}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:white;padding:20px 4%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.nav-cta{display:none}}
+    @media(max-width:560px){section{padding:62px 0}.cards,.impact-grid{grid-template-columns:1fr}.hero-actions .btn{width:100%}.trust-row{gap:14px}.visual{padding:15px}.phone{padding:17px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container"><nav>
+    <a class="brand" href="#home"><span class="logo">Q</span> QR Money</a>
+    <div class="navlinks" id="navlinks"><a href="#how">How it works</a><a href="#access">Financial access</a><a href="#opportunity">Opportunities</a><a href="#about">About</a></div>
+    <a class="btn btn-primary nav-cta" href="#get-started">Get started</a>
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+  </nav></div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Digital payments • Financial inclusion</span>
+        <h1>Make getting paid <span>simpler.</span><br>Make opportunity accessible.</h1>
+        <p class="lead">QR Money is a digital payment concept designed to help individuals, workers and small businesses receive and make payments with less friction — while connecting people to practical financial-access guidance and local professional opportunities.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#how">Explore QR Money</a><a class="btn btn-light" href="#opportunity">Discover opportunities</a></div>
+        <p class="micro">Built around inclusion, trust and access for a connected local economy.</p>
+      </div>
+      <div class="visual">
+        <div class="phone">
+          <div class="phone-top"><strong>QR MONEY</strong><span>● Secure demo</span></div>
+          <div class="balance">KES 10,000.00</div><div class="micro">Illustrative wallet balance</div>
+          <div class="qr">
+            <svg viewBox="0 0 21 21" aria-label="Decorative QR code illustration" shape-rendering="crispEdges">
+              <rect width="21" height="21" fill="white"/>
+              <g fill="#10233f">
+                <path d="M1 1h7v7H1zM2 2v5h5V2z" fill="white"/><path d="M3 3h3v3H3zM13 1h7v7h-7zM14 2v5h5V2z" fill="white"/><path d="M15 3h3v3h-3zM1 13h7v7H1zM2 14v5h5v-5z" fill="white"/><path d="M3 15h3v3H3z"/>
+                <path d="M10 1h2v2h-2zM9 5h2v2H9zM11 8h2v2h-2zM9 10h2v2H9zM13 10h2v2h-2zM16 9h2v2h-2zM19 10h1v2h-1zM9 14h2v2H9zM12 13h2v2h-2zM15 14h2v2h-2zM18 13h2v2h-2zM10 18h2v2h-2zM13 17h2v2h-2zM16 19h2v1h-2zM19 17h1v2h-1z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="payrow"><span>Scan to pay</span><strong>QR payment</strong></div>
+          <div class="payrow"><span>Payment status</span><strong style="color:#0a9b7c">Callback verified*</strong></div>
+          <p class="notice">*Illustrative interface only; not a live payment or account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="trust"><div class="container trust-row"><span>QR-enabled payments</span><span>Mobile money direction</span><span>Small-business friendly</span><span>Inclusive by design</span></div></div>
+
+  <section id="how">
+    <div class="container">
+      <div class="section-head"><span class="kicker">How it works</span><h2>A simpler way to move money</h2><p>QR Money aims to make everyday payments easier to initiate, track and confirm — especially for people and businesses that need accessible digital payment options.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">▦</div><h3>1. Create a payment QR</h3><p>A payer or merchant prepares a QR payment request with the intended recipient and amount.</p></article>
+        <article class="card"><div class="icon">⌕</div><h3>2. Scan and review</h3><p>The payer scans the code, checks the payment details and confirms the transaction securely.</p></article>
+        <article class="card"><div class="icon">✓</div><h3>3. Verify the result</h3><p>The system checks the payment response before showing a transaction as completed.</p></article>
+      </div>
+      <p class="notice" style="text-align:center">The steps describe the intended product flow. Live payment processing depends on a configured and approved payment provider integration.</p>
+    </div>
+  </section>
+
+  <section class="access" id="access">
+    <div class="container split">
+      <div>
+        <span class="kicker">Legal, regulatory & financial access</span>
+        <h2>Help people participate in the formal economy.</h2>
+        <p class="muted">Access to work and income can be blocked by paperwork, unclear requirements and difficulty receiving payments. QR Money can serve as a practical payment layer alongside trusted guidance and referrals to the right support services.</p>
+        <div class="steps">
+          <div class="step"><span class="num">1</span><div><strong>Understand the requirements</strong><p>Provide clear signposts to official work-authorization, business-registration and employer-compliance information.</p></div></div>
+          <div class="step"><span class="num">2</span><div><strong>Get ready to receive payments</strong><p>Explain available payment channels, account requirements, transaction records and safe payment practices.</p></div></div>
+          <div class="step"><span class="num">3</span><div><strong>Keep a clear payment trail</strong><p>Give users access to transaction history and payment confirmations to support their own record-keeping.</p></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-label">Access support hub · concept</div>
+        <h3>From paperwork to payment readiness</h3>
+        <p class="muted">A guided starting point for workers, freelancers and small businesses.</p>
+        <div><span class="pill">Work authorization resources</span><span class="pill">Employer compliance</span><span class="pill">Digital payment access</span><span class="pill">Transaction records</span><span class="pill">Financial literacy</span></div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:23px 0">
+        <strong style="color:var(--navy)">Our commitment</strong>
+        <p class="muted" style="font-size:.9rem">We provide information and payment tools, not legal advice, work permits, bank accounts or guarantees of regulatory approval. Users should confirm requirements with the relevant official authorities and licensed providers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="opportunity" id="opportunity">
+    <div class="container">
+      <div class="section-head"><span class="kicker" style="color:#72e0c9">Local experience & professional networks</span><h2>Turn skills into real opportunities.</h2><p>Digital payments are one part of economic participation. Strong local networks help people build experience, earn trust and access meaningful work.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">◎</div><h3>Mentorship connections</h3><p>Connect emerging talent with experienced professionals for guidance, feedback and career direction.</p></article>
+        <article class="card"><div class="icon">▤</div><h3>Fellowships & returnships</h3><p>Promote structured, time-bound work experiences that help people build local references and practical experience.</p></article>
+        <article class="card"><div class="icon">⇄</div><h3>Skills-based matching</h3><p>Help candidates present verified skills and portfolios to employers, clients and community partners.</p></article>
+      </div>
+      <div class="sdgs"><span class="sdg">SDG 8 · Decent Work</span><span class="sdg">SDG 10 · Reduced Inequalities</span><span class="sdg">SDG 17 · Partnerships</span><span class="sdg">SDG 16 · Strong Institutions</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Why QR Money</span><h2>Technology that supports participation.</h2><p>Our direction is to make payments more accessible while creating pathways to trusted information, skills development and professional connections.</p></div>
+      <div class="impact-grid">
+        <div class="impact"><strong>Access</strong><span>More convenient digital payment options</span></div>
+        <div class="impact"><strong>Trust</strong><span>Clear transaction status and records</span></div>
+        <div class="impact"><strong>Opportunity</strong><span>Stronger links to skills and networks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="get-started">
+    <div class="container">
+      <span class="kicker">Be part of the next step</span><h2>Build a more connected local economy.</h2>
+      <p>Are you a worker, small business, mentor, employer or community organization? Help shape accessible payments and stronger pathways into work.</p>
+      <a class="btn btn-primary" href="mailto:hello@qrmoney.example?subject=QR%20Money%20Partnership%20Enquiry">Contact the QR Money team</a>
+      <p class="notice">Replace the sample email address with your real project contact before publishing.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid"><div><div class="footer-brand">QR Money</div><div style="color:#9eafc5;font-size:.88rem">Payments. Opportunity. Access.</div></div><div class="footer-links"><a href="#how">How it works</a><a href="#access">Financial access</a><a href="#opportunity">Opportunities</a><a href="#about">About</a></div></div>
+    <div class="footer-note">© 2026 QR Money. Project concept website. QR Money is not a bank, legal service or employment agency. Payment and opportunity services are subject to partner availability, applicable laws and required approvals.</div>
+  </div>
+</footer>
+<script>
+  const menu = document.getElementById('menu');
+  const links = document.getElementById('navlinks');
+  menu.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
